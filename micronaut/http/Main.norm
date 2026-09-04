@@ -3,9 +3,9 @@ package micronaut.http
 import micronaut.http.annotation.Controller
 import micronaut.http.annotation.Get
 
-@Controller(value: "/hello")
+@Controller("/hello")
 class HelloController {
-  @Get(value: "/{name}")
+  @Get("/{name}")
   String hello(String name) {
     return "Hello, " + name
   }
