@@ -1,0 +1,39 @@
+package sample.sse
+
+import micronaut.http.annotation.Controller
+import micronaut.http.annotation.Get
+import micronaut.http.sse.Event
+import micronaut.http.sse.eventOf
+import micronaut.inject.context.applicationContextRun
+import micronaut.inject.javaStringArrayNew
+import micronaut.runtime.runtime.server.EmbeddedServer
+import reactor.core.publisher.fluxJust
+import std.concurrent.awaitCancellation
+import std.collections.MutableMap
+import std.collections.mutableMap
+import std.concurrent.Publisher
+
+@Controller(value: "/events")
+class EventController {
+  @Get(produces: ["text/event-stream"])
+  Publisher<Event<String?>?>? events() {
+    var event = eventOf<String>(arg0: "Norm SSE")
+    return fluxJust<Event<String?>?>(arg0: event)
+  }
+}
+
+Void main() {
+  var arguments = javaStringArrayNew(size: 0)
+  MutableMap<String?, Any?> properties = mutableMap()
+  properties.put(key: "micronaut.server.port", value: -1)
+  EmbeddedServer? server = applicationContextRun<EmbeddedServer>(
+    arg0: EmbeddedServer.class,
+    arg1: properties,
+    arg2: arguments
+  )
+  if server != null {
+    printLine(server.getURI()?.value ?? "")
+    awaitCancellation()
+    server.close()
+  }
+}
