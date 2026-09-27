@@ -1,7 +1,7 @@
 Module module() {
   return module(
     name: "micronaut.http",
-    version: 2,
+    version: 3,
     binding: jarBinding(
       target: mavenJar(
         group: "io.micronaut",
@@ -50,6 +50,7 @@ Module module() {
             jarOverload(name: "accepted", parameterTypes: []),
             jarOverload(name: "noContent", parameterTypes: []),
             jarOverload(name: "badRequest", parameterTypes: ["java.lang.Object"]),
+            jarOverload(name: "seeOther", parameterTypes: ["java.net.URI"]),
             jarOverload(name: "notFound", parameterTypes: []),
             jarOverload(name: "unauthorized", parameterTypes: []),
             jarOverload(name: "serverError", parameterTypes: ["java.lang.Object"])
