@@ -1,4 +1,4 @@
-package micronaut.http
+package binding
 
 import micronaut.http.annotation.Controller
 import micronaut.http.annotation.Get
@@ -13,7 +13,7 @@ class HelloController {
 
 Void main() {
   Controller? controller = HelloController.class.annotation<Controller>()
-  if controller != null {
-    printLine(controller.value)
-  }
+  require(condition: controller != null && controller.value == "/hello", message: "Controller binding is missing")
+  require(condition: HelloController().hello("Norm") == "Hello, Norm", message: "Route handler changed")
+  printLine(controller!!.value)
 }

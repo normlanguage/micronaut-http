@@ -2,6 +2,6 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-适配声明与可运行示例位于 `micronaut/http`，固定 Micronaut HTTP 5.1.13，发布坐标见 [module.norm](micronaut/http/module.norm)。公开面覆盖 Controller、常用路由与请求绑定 Annotation、Server Filter Annotation，以及常用请求、响应和状态 API。
+[模块声明](micronaut/http/module.norm)绑定 Controller、路由、请求 Annotation、过滤器、请求、响应与状态 API。独立的[绑定示例](examples/binding/Main.norm)验证 Controller 声明；[micronaut-web](https://github.com/normlanguage/micronaut-web/tree/main/samples) 验证 HTTP 行为。
 
 [示例归属](samples/README.zh-CN.md)。

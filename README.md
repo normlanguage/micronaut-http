@@ -2,6 +2,6 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-The adapter declaration and runnable example are in `micronaut/http`. It pins Micronaut HTTP 5.1.13 and defines its package coordinates in [module.norm](micronaut/http/module.norm). The public API covers controllers, common routing and request-binding annotations, server-filter annotations, and common request, response, and status APIs.
+The [module](micronaut/http/module.norm) binds controllers, routing, request annotations, filters, requests, responses, and status APIs. The independent [binding example](examples/binding/Main.norm) checks a controller declaration; [micronaut-web](https://github.com/normlanguage/micronaut-web/tree/main/samples) verifies HTTP behavior.
 
 [Sample ownership](samples/README.md).
