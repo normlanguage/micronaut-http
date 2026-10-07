@@ -1,5 +1,5 @@
 Module module() {
   module(name: "binding", version: 1, dependencies: [
-    dependency(repository: "github", name: "micronaut.http", version: 4)
+    dependency(repository: "github", name: "micronaut.http", version: 5)
   ])
 }
