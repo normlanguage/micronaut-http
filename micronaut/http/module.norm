@@ -1,7 +1,9 @@
 Module module() {
   return module(
     name: "micronaut.http",
-    version: 4,
+    version: 5,
+    exports: ["annotation.Controller", "annotation.Get", "annotation.Post", "annotation.Put", "annotation.Patch", "annotation.Delete", "annotation.Body", "annotation.PathVariable", "annotation.QueryValue", "annotation.Header", "annotation.CookieValue", "annotation.RequestAttribute", "annotation.RequestBean", "annotation.RequestFilter", "annotation.ResponseFilter", "annotation.ServerFilter", "annotation.Consumes", "annotation.Produces", "annotation.Status", "annotation.Error", "HttpStatus", "HttpResponse", "HttpRequest", "HttpHeaders", "sse.Event"],
+    dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(
       target: mavenJar(
         group: "io.micronaut",
@@ -10,38 +12,38 @@ Module module() {
         resolution: sha256("b203720783ccf7504ab0a9da35144f0caab36108252dd4fa5f8c017d49e5c5d8")
       ),
       api: [
-        jarType(name: "annotation.Controller", members: ["consumes", "port", "produces", "value"]),
-        jarType(name: "annotation.Get", members: ["consumes", "headRoute", "processes", "produces", "single", "uri", "uris", "value"]),
-        jarType(name: "annotation.Post", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
-        jarType(name: "annotation.Put", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
-        jarType(name: "annotation.Patch", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
-        jarType(name: "annotation.Delete", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
-        jarType(name: "annotation.Body", members: ["defaultValue", "value"]),
-        jarType(name: "annotation.PathVariable", members: ["defaultValue", "name", "value"]),
-        jarType(name: "annotation.QueryValue", members: ["defaultValue", "value"]),
-        jarType(name: "annotation.Header", members: ["defaultValue", "name", "value"]),
-        jarType(name: "annotation.CookieValue", members: ["defaultValue", "value"]),
-        jarType(name: "annotation.RequestAttribute", members: ["defaultValue", "value"]),
-        jarType(name: "annotation.RequestBean", members: []),
+        jarType(name: "io.micronaut.http.annotation.Controller", alias: "annotation.Controller", members: ["consumes", "port", "produces", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Get", alias: "annotation.Get", members: ["consumes", "headRoute", "processes", "produces", "single", "uri", "uris", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Post", alias: "annotation.Post", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Put", alias: "annotation.Put", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Patch", alias: "annotation.Patch", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Delete", alias: "annotation.Delete", members: ["consumes", "processes", "produces", "single", "uri", "uris", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Body", alias: "annotation.Body", members: ["defaultValue", "value"]),
+        jarType(name: "io.micronaut.http.annotation.PathVariable", alias: "annotation.PathVariable", members: ["defaultValue", "name", "value"]),
+        jarType(name: "io.micronaut.http.annotation.QueryValue", alias: "annotation.QueryValue", members: ["defaultValue", "value"]),
+        jarType(name: "io.micronaut.http.annotation.Header", alias: "annotation.Header", members: ["defaultValue", "name", "value"]),
+        jarType(name: "io.micronaut.http.annotation.CookieValue", alias: "annotation.CookieValue", members: ["defaultValue", "value"]),
+        jarType(name: "io.micronaut.http.annotation.RequestAttribute", alias: "annotation.RequestAttribute", members: ["defaultValue", "value"]),
+        jarType(name: "io.micronaut.http.annotation.RequestBean", alias: "annotation.RequestBean", members: []),
         jarType(
-          name: "annotation.RequestFilter",
+          name: "io.micronaut.http.annotation.RequestFilter", alias: "annotation.RequestFilter",
           members: ["methods", "patternStyle", "patterns", "value"]
         ),
         jarType(
-          name: "annotation.ResponseFilter",
+          name: "io.micronaut.http.annotation.ResponseFilter", alias: "annotation.ResponseFilter",
           members: ["methods", "patternStyle", "patterns", "value"]
         ),
         jarType(
-          name: "annotation.ServerFilter",
+          name: "io.micronaut.http.annotation.ServerFilter", alias: "annotation.ServerFilter",
           members: ["appendContextPath", "methods", "patternStyle", "patterns", "value"]
         ),
-        jarType(name: "annotation.Consumes", members: ["value"]),
-        jarType(name: "annotation.Produces", members: ["value"]),
-        jarType(name: "annotation.Status", members: ["value"]),
-        jarType(name: "annotation.Error", members: ["exception", "global", "status", "value"]),
-        jarType(name: "HttpStatus", members: ["getCode", "getReason"]),
+        jarType(name: "io.micronaut.http.annotation.Consumes", alias: "annotation.Consumes", members: ["value"]),
+        jarType(name: "io.micronaut.http.annotation.Produces", alias: "annotation.Produces", members: ["value"]),
+        jarType(name: "io.micronaut.http.annotation.Status", alias: "annotation.Status", members: ["value"]),
+        jarType(name: "io.micronaut.http.annotation.Error", alias: "annotation.Error", members: ["exception", "global", "status", "value"]),
+        jarType(name: "io.micronaut.http.HttpStatus", alias: "HttpStatus", members: ["getCode", "getReason"]),
         jarType(
-          name: "HttpResponse",
+          name: "io.micronaut.http.HttpResponse", alias: "HttpResponse",
           members: ["body", "code", "reason", "status"],
           overloads: [
             jarOverload(name: "ok", parameterTypes: []),
@@ -56,10 +58,10 @@ Module module() {
             jarOverload(name: "serverError", parameterTypes: ["java.lang.Object"])
           ]
         ),
-        jarType(name: "HttpRequest", members: ["getHeaders", "getMethodName", "getPath", "getUri", "isSecure"]),
-        jarType(name: "HttpHeaders", members: ["contains", "findFirst", "getAuthorization"]),
+        jarType(name: "io.micronaut.http.HttpRequest", alias: "HttpRequest", members: ["getHeaders", "getMethodName", "getPath", "getUri", "isSecure"]),
+        jarType(name: "io.micronaut.http.HttpHeaders", alias: "HttpHeaders", members: ["contains", "findFirst", "getAuthorization"]),
         jarType(
-          name: "sse.Event",
+          name: "io.micronaut.http.sse.Event", alias: "sse.Event",
           members: ["comment", "getComment", "getData", "getId", "getName", "getRetry", "id", "name", "retry"],
           overloads: [jarOverload(name: "of", parameterTypes: ["java.lang.Object"])]
         )
