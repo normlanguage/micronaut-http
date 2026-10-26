@@ -10,12 +10,13 @@ Module module() {
       dependency(repository: "github", name: "micronaut.runtime", version: 5),
       dependency(repository: "github", name: "micronaut.server.netty", version: 5),
       dependency(repository: "github", name: "micronaut.json", version: 5),
-      dependency(repository: "github", name: "micronaut.serde.jackson", version: 8),
+      dependency(repository: "github", name: "micronaut.serde.jackson", version: 7),
       dependency(repository: "github", name: "micronaut.inject.processor", version: 13),
       dependency(repository: "github", name: "reactor.core", version: 6)
     ]
   )
 }
+
 
 
 
