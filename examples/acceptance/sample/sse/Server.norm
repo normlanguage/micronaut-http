@@ -25,7 +25,7 @@ class EventController {
 Void main() {
   var arguments = javaStringArrayNew(size: 0)
   JavaMap<String, Any> properties = linkedHashMapNew<String, Any>()!!
-  properties.put(arg0: "micronaut.server.port", arg1: -1)
+  properties.put(arg0: "micronaut.server.port", arg1: 0)
   EmbeddedServer? server = applicationContextRun<EmbeddedServer>(
     arg0: EmbeddedServer.class,
     arg1: properties,
@@ -37,3 +37,4 @@ Void main() {
     server.close()
   }
 }
+
