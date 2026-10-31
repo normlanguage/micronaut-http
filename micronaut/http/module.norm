@@ -1,7 +1,7 @@
 Module module() {
   return module(
     name: "micronaut.http",
-    version: 5,
+    version: 6,
     exports: ["annotation.Controller", "annotation.Get", "annotation.Post", "annotation.Put", "annotation.Patch", "annotation.Delete", "annotation.Body", "annotation.PathVariable", "annotation.QueryValue", "annotation.Header", "annotation.CookieValue", "annotation.RequestAttribute", "annotation.RequestBean", "annotation.RequestFilter", "annotation.ResponseFilter", "annotation.ServerFilter", "annotation.Consumes", "annotation.Produces", "annotation.Status", "annotation.Error", "HttpStatus", "HttpResponse", "HttpRequest", "HttpHeaders", "sse.Event"],
     dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(
